@@ -18,9 +18,11 @@ export const getMovies = () => {
   return async function (dispatch) {
     // veri çekme işlemleri
     const res = await axios.get(
-      "/movie/popular?language=en",
+      "https://api.themoviedb.org/3/movie/popular",
       options
     )
+
+   
     // gelen veriyi reducer'a aktarma
     dispatch({
       type: ActionTypes.SET_MOVIES,
@@ -28,6 +30,8 @@ export const getMovies = () => {
     });
   };
 };
+
+
 
 export const getGenres = () => (dispatch) => {
   // kategori verilerini çekecek

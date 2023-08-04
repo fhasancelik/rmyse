@@ -10,7 +10,7 @@ import ListMovies from "../components/ListMovies";
 
 const MainPage = () => {
   const dispatch = useDispatch();
-const state = useSelector((store)=> store.movieReducer)
+  const state = useSelector((store) => store.movieReducer);
   useEffect(() => {
     // loadingi true yapar
     dispatch(setLoading(true));
@@ -26,11 +26,14 @@ const state = useSelector((store)=> store.movieReducer)
   return (
     <div>
       <Hero />
-     {/*
+      {/*
        * herbir kategori için o ketagoriye ait
        * filmleri listeleyecek bileşeni ekran basma
        */}
-      {state.genres.map((genre)=> (<ListMovies key={genre.id} genre={genre}/>))}
+      {state.genres.map((genre) => {
+        //console.log(genre)
+        return <ListMovies key={genre.id} genre={genre} />;
+      })}
     </div>
   );
 };

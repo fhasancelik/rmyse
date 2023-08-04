@@ -8,12 +8,16 @@ import { Link } from "react-router-dom";
 
 const ListMovies = ({ genre }) => {
   const [movies, setMovies] = useState([]);
-
+//console.log(genre.id,'dfdsdf')
   useEffect(() => {
     // Listeleme kategoriye ait film verilerini çekme
     axios
       .get(`/discover/movie?with_genres=${genre.id}`, options)
-      .then((res) => setMovies(res.data.results))
+      .then((res) => {
+        //console.log(res)
+    // setMovies(res.data.results)
+      
+      })
       .catch((err) => console.log(err));
   }, []);
   return (
